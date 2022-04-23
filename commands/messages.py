@@ -16,11 +16,12 @@ class Messages(commands.Cog):
     )
     async def send_weather(self, ctx):
 
-        temperature, humidity, condition = get_weather_by_id()
+        temperature, humidity, condition, date = get_weather_by_id()
 
-        now = datetime.now()
-        hour = int(now.strftime(r"%H"))
-        date = now.strftime(r"%d/%m - %H:%M")
+        # date: "2017-10-01 12:37:00"
+        date = datetime.strptime(date, r"%Y-%m-%d %H:%M:%S")
+        hour = int(datetime.strftime(date, "%H"))
+        date = datetime.strftime(date, r"%d/%m/%Y - %H:%M")
 
         title_emoji = '🌤️'
         if temperature < 10:

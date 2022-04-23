@@ -28,8 +28,9 @@ def get_weather_by_id(id=5195):
     temperature = data["temperature"]
     humidity = data["humidity"]
     condition = data["condition"]
+    date = data["date"]
 
-    return temperature, humidity, condition
+    return temperature, humidity, condition, date
 
 
 def register_city(city="Sapucaia do Sul", state="RS"):
