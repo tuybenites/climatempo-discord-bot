@@ -12,7 +12,7 @@ class Messages(commands.Cog):
 
     @commands.command(name="clima")
     async def send_weather(self, ctx):
-        # data => temperature, humidity, condition, date
+
         temperature, humidity, condition, date = get_weather_by_id()
 
         now = datetime.now()
@@ -35,7 +35,7 @@ class Messages(commands.Cog):
         )
 
         embed.set_author(
-            name=self.bot.user.name  # , icon_url=self.bot.user.avatar
+            name=self.bot.user.name
         )
         embed.add_field(name="Umidade 💧",
                         value=f" {humidity}%")
@@ -46,16 +46,10 @@ class Messages(commands.Cog):
                         value=str(condition))
         embed.add_field(name="Data 📅", value=str(date))
 
-        # GOOGLE_URL = "https://play.google.com/store/apps/details"
-        # climatempoIM = GOOGLE_URL+"?id=com.mobimidia.
-        # climaTempo&hl=pt_BR&gl=US"
-        # embed.set_image(url=climatempoIM)
+        embed.set_image(url="https://i.imgur.com/sZx6LgU.png")
 
-        # climatempo_png = GOOGLE_URL+"?id=com.mobimidia.
-        # climaTempo&hl=pt&gl=GB"
         embed.set_footer(
-            text="Dados retirados da API Climatempo",
-            # icon_url=climatempo_png
+            text="Dados retirados da API Climatempo"
         )
 
         await ctx.channel.send(embed=embed)
@@ -63,7 +57,3 @@ class Messages(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Messages(bot))
-
-
-if __name__ == "__main__":
-    print(get_weather_by_id())
