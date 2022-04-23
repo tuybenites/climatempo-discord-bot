@@ -24,7 +24,7 @@ class Messages(commands.Cog):
             title_emoji = '❄️'
         elif hour > 12:
             title_emoji = '🌞'
-        elif hour > 19:
+        elif (hour > 0 and hour < 6) or hour > 19:
             title_emoji = '🌃'
 
         embed = discord.Embed(
