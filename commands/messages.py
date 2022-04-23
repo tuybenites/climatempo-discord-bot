@@ -31,7 +31,8 @@ class Messages(commands.Cog):
             title=f"{title_emoji} Clima em Sapucaia do Sul {title_emoji}",
             description='''" Prefiro o paraíso pelo clima
             e o inferno pela companhia. "'''.replace('\n', ''),
-            color=0x00b0f5
+            color=0x00b0f5,
+            url="https://github.com/tuybenites/climatempo-discord-bot"
         )
 
         embed.set_author(
@@ -42,8 +43,10 @@ class Messages(commands.Cog):
 
         embed.add_field(name="Temperatura 🌡️",
                         value=f" {temperature}° C")
+
         embed.add_field(name="Condição 📝",
                         value=str(condition))
+
         embed.add_field(name="Data 📅", value=str(date))
 
         embed.set_image(url="https://i.imgur.com/sZx6LgU.png")
