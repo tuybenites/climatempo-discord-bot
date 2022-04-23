@@ -13,7 +13,7 @@ class Messages(commands.Cog):
     @commands.command(name="clima")
     async def send_weather(self, ctx):
 
-        temperature, humidity, condition, date = get_weather_by_id()
+        temperature, humidity, condition = get_weather_by_id()
 
         now = datetime.now()
         hour = int(now.strftime(r"%H"))
@@ -24,8 +24,10 @@ class Messages(commands.Cog):
             title_emoji = '❄️'
         elif hour > 12:
             title_emoji = '🌞'
-        elif (hour > 0 and hour < 6) or hour > 19:
+        elif hour > 19:
             title_emoji = '🌃'
+
+        # Configuring the embed
 
         embed = discord.Embed(
             title=f"{title_emoji} Clima em Sapucaia do Sul {title_emoji}",

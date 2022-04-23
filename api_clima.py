@@ -28,9 +28,8 @@ def get_weather_by_id(id=5195):
     temperature = data["temperature"]
     humidity = data["humidity"]
     condition = data["condition"]
-    date = data["date"]
 
-    return temperature, humidity, condition, date
+    return temperature, humidity, condition
 
 
 def register_city(city="Sapucaia do Sul", state="RS"):
@@ -49,13 +48,3 @@ def register_city(city="Sapucaia do Sul", state="RS"):
 
     print(response)
     print(response.text)
-
-
-if __name__ == "__main__":
-
-    # register_city()
-
-    id = 5195  # get_id_by_city_and_state("Sapucaia do Sul")
-    data_raw = get_weather_by_id(id)
-
-    print(data_raw)
