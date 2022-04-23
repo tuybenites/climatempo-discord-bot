@@ -18,12 +18,12 @@ class Manager(commands.Cog):
         if isinstance(error, CommandNotFound):
             await ctx.channel.send(
                 """Comando não encontrado.
-                Digite !help para obter ajuda"""
+                Digite !!help para obter ajuda"""
             )
         elif isinstance(error, MissingRequiredArgument):
             await ctx.channel.send(
                 """Favor enviar todos os argumentos.
-                Digite !help para obter ajuda"""
+                Digite !!help para obter ajuda"""
             )
         else:
             raise error
