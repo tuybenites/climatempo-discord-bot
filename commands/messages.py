@@ -10,7 +10,10 @@ class Messages(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="clima")
+    @commands.command(
+        name="clima",
+        help="Informações do clima (não recebe parâmetros)"
+    )
     async def send_weather(self, ctx):
 
         temperature, humidity, condition = get_weather_by_id()
