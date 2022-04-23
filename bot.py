@@ -1,7 +1,7 @@
 from discord.ext import commands
 import decouple
 
-bot = commands.Bot("!")
+bot = commands.Bot("!!")
 
 
 bot.load_extension("manager")
