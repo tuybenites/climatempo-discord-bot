@@ -1,6 +1,9 @@
 import discord
 from api_clima import get_weather_by_id
 from datetime import datetime
+import requests
+
+CAT_API = r"https://api.thecatapi.com/v1/images/search"
 
 
 def embed_weather(bot):
@@ -46,6 +49,46 @@ def embed_weather(bot):
 
     embed.set_footer(
         text="Dados retirados da API Climatempo"
+    )
+
+    return embed
+
+
+def embed_cat(bot):
+    response = requests.get(CAT_API).json()[0]
+
+    url_cat = response["url"]
+    breeds = response["breeds"]
+
+    embed = discord.Embed(
+        title="🐈 GATO DA VEZ 🐈",
+        descripton="purr",
+        color=0xff8c00,
+        url="https://github.com/tuybenites/climatempo-discord-bot"
+    )
+
+    embed.set_author(
+        name=bot.user.name
+    )
+
+    if breeds:
+        breed_name = breeds[0]["name"]
+        embed.add_field(
+            name="✨Raça",
+            value=f"`{breed_name}`"
+        )
+    else:
+        embed.add_field(
+            name="✨ Raça",
+            value="`Desconhecida`"
+        )
+
+    embed.set_image(
+        url=url_cat
+    )
+
+    embed.set_footer(
+        text="Fotos retiradas de 'The Cat API'"
     )
 
     return embed
